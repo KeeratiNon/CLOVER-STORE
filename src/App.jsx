@@ -1,23 +1,19 @@
-import { useState } from "react";
 import "./App.css";
-import Banner from "./components/Banner";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import ErrorPage from "./pages/ErrorPage";
 import Navbar from "./components/Navbar";
-import ProductList from "./components/ProductList";
-import Categories from "./components/Categories";
+import CategoryPage from "./pages/CategoryPage";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
   return (
-    <div
-      className="flex flex-col items-center"
-      data-theme={isDarkMode ? "dark" : "light"}
-    >
-      <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      <Banner />
-      <Categories />
-      <ProductList />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/products/category/:category" element={<CategoryPage />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

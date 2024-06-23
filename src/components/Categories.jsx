@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
   const [CategoriesData, setCategoriesData] = useState([]);
   const getCategories = async () => {
     try {
       const result = await axios.get(
-        "https://api.escuelajs.co/api/v1/categories"
+        "https://fakestoreapi.com/products/categories"
       );
       setCategoriesData(result.data);
     } catch (error) {
@@ -23,11 +24,9 @@ const Categories = () => {
       <div className="max-w-[800px] flex flex-col justify-center items-center gap-5">
         <div className="flex flex-wrap gap-5">
           {CategoriesData.map(
-            (category, index) =>
-              index < 5 && (
-                <a className="p-3 btn shadow-xl" key={category.id}>
-                  {category.name}
-                </a>
+            (category,index) =>
+               (
+                  <Link to={`/products/category/${category}`} ><a className="p-3 btn shadow-xl" key={index}>{category}</a></Link>
               )
           )}
         </div>

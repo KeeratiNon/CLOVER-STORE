@@ -9,7 +9,7 @@ const ProductList = () => {
       const results = await axios.get(
         "https://fakestoreapi.com/products?&offset=0&limit=10"
       );
-      console.log(results.data);
+      // console.log(results.data);
       setShowProduct(results.data);
     } catch (error) {
       console.log(error);
@@ -18,6 +18,7 @@ const ProductList = () => {
   useEffect(() => {
     getProductData();
   }, []);
+
   return (
     <div className="flex w-[80%] flex-wrap gap-y-[40px] pb-10">
       {showProducts.map((product) => (

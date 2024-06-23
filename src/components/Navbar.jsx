@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 const Navbar = ({ isDarkMode, setIsDarkMode }) => {
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);

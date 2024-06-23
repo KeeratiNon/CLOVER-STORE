@@ -13,16 +13,13 @@ const ProductItem = ({ product }) => {
           <div className="absolute top-0 h-full w-full bg-black/5" />
         </figure>
         <div className="card-body p-3 h-[140px] justify-between">
-          <h2 className="card-title w-[90%] text-sm line-clamp-2">
-            {product.title}
-          </h2>
-          <h3 className="card-actions justify-end font-semibold">
-            {product.price}$
-          </h3>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline">Fashion</div>
-            <div className="badge badge-outline">Products</div>
+          <div className="flex flex-col gap-1">
+            <p className="font-[200] text-[12px] badge badge-outline bg-gray-500 text-white">{product.category}</p>
+            <h2 className="card-title w-[90%] text-sm line-clamp-2">
+              {product.title}
+            </h2>
           </div>
+          <h3 className="font-semibold">{product.price}$</h3>
         </div>
       </div>
     </div>
