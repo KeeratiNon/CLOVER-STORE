@@ -1,16 +1,23 @@
+import { Link } from "react-router-dom";
+import Categories from "./Categories";
+
 const Navbar = ({ isDarkMode, setIsDarkMode }) => {
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
   return (
     <div className="navbar bg-base-100 sticky top-0 z-10 flex justify-center">
-      <div className="w-[80%] flex justify-between gap-6">
+      <div className="w-[80%] flex justify-between gap-6 ">
         <div className="p-4 flex-1">
-          <a className="text-2xl">
+          <Link className="text-2xl" to={"/"}>
             <span className="text-green-400">C</span>LOVER
-          </a>
+          </Link>
         </div>
-        <label className="flex cursor-pointer gap-2" onClick={toggleTheme}>
+        <Categories />
+        <label
+          className=" hidden md:flex cursor-pointer gap-2"
+          onClick={toggleTheme}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -44,7 +51,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </label>
-        <div className="flex-none">
+        <div className="flex-none hidden md:block">
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}

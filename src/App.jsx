@@ -4,15 +4,30 @@ import LandingPage from "./pages/LandingPage";
 import ErrorPage from "./pages/ErrorPage";
 import Navbar from "./components/Navbar";
 import CategoryPage from "./pages/CategoryPage";
+import { useState } from "react";
+import ProductInfo from "./pages/ProductInfo";
+import Footer from "./components/Footer";
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/products/category/:category" element={<CategoryPage />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+      <div data-theme={isDarkMode ? "dark" : "light"}>
+        <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route
+            path="/products/category/:category"
+            element={<CategoryPage />}
+          />
+          <Route
+            path="/Product/:id"
+            element={<ProductInfo isDarkMode={isDarkMode} />}
+          />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }

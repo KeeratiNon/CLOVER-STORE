@@ -5,15 +5,9 @@ import ProductList from "../components/ProductList";
 import Categories from "../components/Categories";
 
 const LandingPage = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   return (
-    <div
-      className="flex flex-col items-center"
-      data-theme={isDarkMode ? "dark" : "light"}
-    >
-      <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+    <div className="flex flex-col items-center">
       <Banner />
-      <Categories />
       <ProductList />
     </div>
   );

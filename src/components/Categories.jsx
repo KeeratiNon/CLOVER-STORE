@@ -20,18 +20,27 @@ const Categories = () => {
   }, []);
 
   return (
-    <section className="flex justify-center items-center py-8 w-full ">
-      <div className="max-w-[800px] flex flex-col justify-center items-center gap-5">
-        <div className="flex flex-wrap gap-5">
-          {CategoriesData.map(
-            (category,index) =>
-               (
-                  <Link to={`/products/category/${category}`} ><a className="p-3 btn shadow-xl" key={index}>{category}</a></Link>
-              )
-          )}
-        </div>
+    <div className="dropdown">
+      <div tabIndex={1} role="button" className="btn btn-ghost">
+        Categories
       </div>
-    </section>
+      <ul
+        tabIndex={0}
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+      >
+        <li className="">
+          {CategoriesData.map((category, index) => (
+            <Link
+              className="p-3 "
+              key={index}
+              to={`/products/category/${category}`}
+            >
+              {category}
+            </Link>
+          ))}
+        </li>
+      </ul>
+    </div>
   );
 };
 
