@@ -10,6 +10,7 @@ const Categories = () => {
         "https://fakestoreapi.com/products/categories"
       );
       setCategoriesData(result.data);
+      console.log(result.data);
     } catch (error) {
       console.error(error);
     }
@@ -20,7 +21,7 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="dropdown">
+    <div className="dropdown dropdown-end">
       <div tabIndex={1} role="button" className="btn btn-ghost">
         Categories
       </div>
@@ -31,7 +32,7 @@ const Categories = () => {
         <li className="">
           {CategoriesData.map((category, index) => (
             <Link
-              className="p-3 "
+              className="p-3"
               key={index}
               to={`/products/category/${category}`}
             >
