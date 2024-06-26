@@ -18,6 +18,18 @@ const ProductInfo = ({ isDarkMode }) => {
       console.log(error);
     }
   };
+  const [countItem, setCountItem] = useState(1);
+  const handleAddItem = () => {
+    setCountItem(countItem + 1);
+  };
+  const handleSubtractItem = () => {
+    if (countItem > 1) {
+      setCountItem(countItem - 1);
+    }
+  };
+  const handleChange = (e) => {
+    setCountItem(e.target.value);
+  };
   useEffect(() => {
     getProductData();
   }, []);
@@ -54,13 +66,21 @@ const ProductInfo = ({ isDarkMode }) => {
             <div className="flex flex-row items-center justify-between">
               <h2 className="text-2xl font-semibold">{showProducts.price}$</h2>
               <div className="flex gap-2">
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+                <button
+                  className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+                  onClick={handleSubtractItem}
+                >
                   -
                 </button>
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
-                  Num
-                </button>
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+                <input
+                  className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+                  value={countItem}
+                  onChange={handleChange}
+                />
+                <button
+                  className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+                  onClick={handleAddItem}
+                >
                   +
                 </button>
                 <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
