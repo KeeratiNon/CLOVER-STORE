@@ -5,3 +5,18 @@
   margin: 0px;
   padding: 0px;
 }
+.logo-text {
+  font-size: 140px;
+  letter-spacing: 40px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s;
+  -webkit-box-reflect: below -100px linear-gradient(transparent, #0003);
+  margin-bottom: 100px;
+}
+
+@keyframes typing {
+  from { width: 0 }
+}
+

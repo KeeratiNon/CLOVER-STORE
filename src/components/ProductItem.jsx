@@ -7,7 +7,7 @@ const ProductItem = ({ product }) => {
       to={"/Product/" + product.id}
       className="flex flex-[0_1_calc(15%)] duration-500 hover:scale-105"
     >
-      <div className="card w-60 bg-base-100 shadow-xl">
+      <div className="card w-60 bg-base-100 shadow-md rounded-[0px]">
         <figure data-theme="light" className="relative p-4">
           <img
             src={product.image}

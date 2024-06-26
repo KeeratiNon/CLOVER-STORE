@@ -43,9 +43,9 @@ const Footer = () => {
           </p>
         </section>
         <div className="p-4">
-          <Link className="text-2xl" to={"/"}>
+          <div className="text-2xl">
             <span className="text-green-400">C</span>LOVER
-          </Link>
+          </div>
         </div>
       </footer>
     </div>
