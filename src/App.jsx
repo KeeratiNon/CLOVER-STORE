@@ -8,6 +8,8 @@ import { useState } from "react";
 import ProductInfo from "./pages/ProductInfo";
 import Footer from "./components/Footer";
 import CartPage from "./pages/CartPage";
+import LoginForm from "./pages/LoginForm";
+import RegisterForm from "./pages/RegisterForm";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
