@@ -84,9 +84,9 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
                 <span className="font-bold text-lg">8 Items</span>
                 <span className="text-info">Subtotal: $999</span>
                 <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
+                  <Link to="/cart" className="btn btn-block bg-green-400 border-none hover:bg-green-500">
                     View cart
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

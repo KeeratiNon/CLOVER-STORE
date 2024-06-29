@@ -10,7 +10,7 @@ const Categories = () => {
         "https://fakestoreapi.com/products/categories"
       );
       setCategoriesData(result.data);
-      console.log(result.data);
+      // console.log(result.data);
     } catch (error) {
       console.error(error);
     }

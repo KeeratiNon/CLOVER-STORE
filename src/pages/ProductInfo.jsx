@@ -7,6 +7,7 @@ const ProductInfo = ({ isDarkMode }) => {
   const params = useParams();
   const [showProducts, setShowProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [countItem, setCountItem] = useState(1);
   const getProductData = async () => {
     try {
       const results = await axios.get(
@@ -16,6 +17,19 @@ const ProductInfo = ({ isDarkMode }) => {
       setIsLoading(false);
     } catch (error) {
       console.log(error);
+    }
+  };
+  const handleAddItem = () => {
+      setCountItem(countItem + 1)
+  };
+  const handleSubtractItem = () => {
+    if (countItem > 1) {
+      setCountItem(countItem - 1);
+    }
+  };
+  const handleChange = (e) => {
+    if (/^\d+$/.test(e.target.value)) {
+      setCountItem(e.target.value);
     }
   };
   useEffect(() => {
@@ -53,17 +67,27 @@ const ProductInfo = ({ isDarkMode }) => {
             </div>
             <div className="flex flex-row items-center justify-between">
               <h2 className="text-2xl font-semibold">{showProducts.price}$</h2>
-              <div className="flex gap-2">
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+              <div className="flex gap-2 justify-end">
+                <button
+                  className="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md"
+                  onClick={handleSubtractItem}
+                >
                   -
                 </button>
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
-                  Num
-                </button>
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+                <input
+                  className="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md w-[20%] outline-none"
+                  value={countItem}
+                  type="tel"
+                  maxLength="2"
+                  onChange={handleChange}
+                />
+                <button
+                  className="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md"
+                  onClick={handleAddItem}
+                >
                   +
                 </button>
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+                <button className="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md">
                   Add to cart
                 </button>
               </div>

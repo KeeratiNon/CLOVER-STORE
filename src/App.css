@@ -16,6 +16,11 @@
   margin-bottom: 100px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 @keyframes typing {
   from { width: 0 }
 }
