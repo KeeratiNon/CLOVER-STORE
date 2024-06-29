@@ -21,7 +21,7 @@ const CategoryPage = () => {
   return (
     <div className="flex flex-col justify-center items-center gap-5 py-5">
       <h1 className="font-bold text-2xl">{params.category}</h1>
-      <div className="flex flex-wrap w-[80%] gap-y-[40px] gap-x-5 pb-10">
+      <div className="flex flex-wrap w-[80%] gap-y-[40px] gap-x-5 pb-10 justify-center">
         {isLoading ? (
           <div className="flex w-52 flex-col gap-4 p-4 ">
             <div className="skeleton h-40  w-full"></div>

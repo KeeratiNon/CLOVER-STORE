@@ -28,6 +28,8 @@ function App() {
             element={<ProductInfo isDarkMode={isDarkMode} />}
           />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/register" element={<RegisterForm isDarkMode={isDarkMode} />} />
+          <Route path="/login" element={<LoginForm />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
